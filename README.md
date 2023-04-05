@@ -81,75 +81,27 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- [PostgreSQL](https://www.postgresql.org/)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
+cd your-folder
+git clone https://github.com/LeslieAine/vet-clinic.git
+cd vet-clinic
 
-```sh
-  cd my-folder
-  git clone git@github.com:LeslieAine/vet-clinic.git
-```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd vet-clinic
-  gem install
-```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
+This repository includes files with plain SQL that can be used to recreate a database:
 
-```sh
-  rails server
-```
---->
+Use schema.sql to create all tables.
+Use data.sql to populate tables with sample data.
+Check queries.sql for examples of queries that can be run on a newly created database.
 
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,7 +160,5 @@ I would like to thank Microverse for the codebase I use
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
