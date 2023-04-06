@@ -14,3 +14,46 @@ INSERT INTO animals (id,name,date_of_birth,escape_attempts,neutered,weight_kg) V
 (9,'Boarmon','2005-06-07',7,true,20.4),
 (10,'Blossom','1998-10-13',3,true,17.0),
 (11,'Ditto','2022-05-14',4,true,22.0);
+
+INSERT INTO owners (full_name, age) 
+VALUES 
+    ('Sam Smith', 34), 
+    ('Jennifer Orwell', 19), 
+    ('Bob', 45), 
+    ('Melody Pond', 77), 
+    ('Dean Winchester', 14), 
+    ('Jodie Whittaker', 38);
+
+INSERT INTO species (name) 
+VALUES 
+    ('Pokemon'), 
+    ('Digimon');
+
+UPDATE animals
+SET species_id = 
+    CASE 
+        WHEN name LIKE '%mon' THEN (SELECT id FROM species WHERE name = 'Digimon')
+        ELSE (SELECT id FROM species WHERE name = 'Pokemon')
+    END;
+
+
+CREATE TEMPORARY TABLE animal_owner_mapping (
+    animal_name VARCHAR(255) PRIMARY KEY,
+    owner_name VARCHAR(255)
+);
+INSERT INTO animal_owner_mapping (animal_name, owner_name)
+VALUES 
+    ('Agumon', 'Sam Smith'),
+    ('Gabumon', 'Jennifer Orwell'),
+    ('Pikachu', 'Jennifer Orwell'),
+    ('Devimon', 'Bob'),
+    ('Plantmon', 'Bob'),
+    ('Charmander', 'Melody Pond'),
+    ('Squirtle', 'Melody Pond'),
+    ('Blossom', 'Melody Pond'),
+    ('Angemon', 'Dean Winchester'),
+    ('Boarmon', 'Dean Winchester');
+UPDATE animals AS a
+SET owner_id = o.id
+FROM owners AS o
+WHERE o.full_name = (SELECT owner_name FROM animal_owner_mapping WHERE animal_name = a.name);
